@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Série N°2 Javascript</title>
+</head>
+<body>
+    
+    <script>
+        //Exercice 1:
+        //Créez une fonction qui accepte deux paramètres et, si les deux paramètres sont des chaînes, additionnez-les comme s’ils étaient des entiers ou si les deux paramètres sont des entiers, concaténez-les.
+        function concatener(a,b) {
+            if (typeof a === 'string' && typeof b === 'string') {
+                a = parseInt(a);
+                b = parseInt(b);
+                return a + b;
+            }else if (typeof a === 'number' && typeof b === 'number'){
+                a = a.toString();
+                b = b.toString();
+                return a + b;
+            }else{
+                return null;
+            }
+        }
+
+        console.log(concatener("2","3"));
+        console.log(concatener(2,3));
+        console.log(concatener("2",3));
+
+        //Exercice 2:
+        //Créez une fonction qui renvoie le produit de tous les entiers impairs dans un tableau.
+        function produit(tableau) {
+            return tableau.reduce((acc, curr) => curr % 2 !== 0 ? acc * curr : acc, 1);
+        }
+
+        console.log(produit([1, 2, 3, 4]));
+        console.log(produit([3, 6, 8, 5, 5, 7]));
+        console.log(produit([1, 0, 1, 0, 1, 0]));
+
+        //Exercice 3:
+        //Créez une fonction qui répète chaque caractère dans une chaîne n fois.
+        function repetitionCaracteres(chaine, n) {
+            let resultat = "";
+            for (let i = 0; i < chaine.length; i++) {
+                const char = chaine[i];
+                for (let j = 0; j < n; j++) {
+                    resultat += char;
+                    }
+            }
+            return resultat;
+        }
+        
+        console.log(repetitionCaracteres("alex", 3));
+        console.log(repetitionCaracteres("waytolearnx", 1));
+        console.log(repetitionCaracteres("bob", 2));
+
+        //Exercice 4:
+        //Vous avez un tableau avec des mots aléatoires, mais votre programme n’accepte pas les mots commençant par la lettre majuscule « Z ».
+        function filtrer(tab) {
+            return tab.filter(i => !i.startsWith('Z'));
+        }
+
+        console.log(filtrer(["Bob", "Alex", "Zoello"]));
+        console.log(filtrer(["Lion", "Zebra", "Gazelle"]));
+        console.log(filtrer(["Mercedes", "Bmw", "Audi"]));
+
+
+        //Exercice 5:
+        //Écrivez une fonction qui prend un tableau d’éléments et ne renvoie que les entiers.
+        function entier(tabla) {
+            return tabla.filter(Number.isInteger);
+        }
+
+        console.log(entier([1, 2, "3", "4", "5", 6]));
+        console.log(entier(["Vache", 20, "Cheval", 1, "Poule", 50]));
+        console.log(entier(["Str", false, 5.56, 6]));
+
+
+        //Exercice 7:
+        //Créez une fonction qui remplace toutes les voyelles d’une chaîne par un caractère spécifié.
+        function remplacer(chaine, c) {
+            const voyelle = /[aeoiu]/g ;
+            return chaine.replace(voyelle, c);
+        }
+
+        console.log(remplacer("voyelle", "$"));
+        console.log(remplacer("boulevard", "?"));
+        console.log(remplacer("bouche", "@"));
+
+        //Exercice 8:
+        //Créez une fonction pour calculer le déterminant d’une matrice 2 x 2.
+        function determinant(matrice){
+            let det= matrice[0][0]*matrice[1][1]-matrice[0][1]*matrice[1][0];
+            return det;
+        }
+
+        console.log(determinant([[1, 1],[2, 3]]));
+        console.log(determinant([[6, 4],[2, 3]]));
+        console.log(determinant([[2, 4],[4, 2]]));
+
+        //Exercice 9:
+        //Écrivez une fonction qui renvoie l’extension des fichiers.
+        function exten(fichier) {
+            return fichier.map(file => file.split('.').pop());
+        }
+
+        console.log(exten(["file.html", "file.js"])); 
+        console.log(exten(["image.jpg", "image.png", "image.gif"]));
+        console.log(exten(["file.pdf", "file.txt", "file.docx"]));
+
+    </script>
+</body>
+</html>
